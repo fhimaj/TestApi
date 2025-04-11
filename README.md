@@ -1,11 +1,12 @@
-TestApi
-Setup
-Start Oracle DB with Docker
-Create a docker-compose.yml file with the following content:
+# TestApi
 
-yaml
-Copy
-Edit
+## Setup
+
+### 1. Start Oracle DB with Docker
+
+Create a `docker-compose.yml` file with the following content:
+
+```yaml
 version: "3.8"
 
 services:
@@ -25,28 +26,49 @@ services:
 
 volumes:
   oracle-data:
-Run it with:
+```
 
-bash
-Copy
-Edit
+Then run:
+
+```bash
 docker-compose up -d
-Clone and Run the API
+```
 
-bash
-Copy
-Edit
+---
+
+### 2. Clone and Run the API
+
+```bash
 git clone https://github.com/fhimaj/TestApi.git
 cd TestApi
-Open in Visual Studio and run the project.
+```
 
-Sign Up & Authenticate
-Use the /api/user/ endpoint in Swagger to create a user.
-Login with the given username and password.
-Copy the returned token and use the Authorize button in Swagger, or add it to requests manually:
+Open the project in **Visual Studio** and run it.
 
-makefile
-Copy
-Edit
+---
+
+### 3. Sign Up & Authenticate
+
+- Use the `/api/user/` endpoint in **Swagger** to create a user.
+- Login with the username and password you just created.
+- Copy the returned **JWT token**.
+
+You can now authorize requests in two ways:
+
+#### a. Using Swagger UI:
+Click the **Authorize** button and paste the token:
+
+```
+Bearer <your_token>
+```
+
+#### b. Manually (e.g., Postman or custom client):
+
+Add this header to your requests:
+
+```
 Authorization: Bearer <your_token>
-Token is valid for 30 minutes.
+```
+
+> Token is valid for 30 minutes.
+
