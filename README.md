@@ -48,8 +48,10 @@ Open the project in **Visual Studio** and run it.
 ---
 
 ### 3. Sign Up & Authenticate
-
-- Use the `/api/user/` endpoint in **Swagger** to create a user.
+- First make sure db on docker is up and running.
+- Run the api.
+- Open the Swagger at http://localhost:{launchedPort}/index.html (e.g: http://localhost:5169/index.html)
+- Use the `/api/user/` endpoint in **Swagger** to create a user or manually call the endpoint.
 - Login with the username and password you just created.
 - Copy the returned **JWT token**.
 
