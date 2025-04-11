@@ -1,7 +1,11 @@
 TestApi
+Setup
+Start Oracle DB with Docker
+Create a docker-compose.yml file with the following content:
 
-To test, first setup Oracle db using this docker-compose yaml config:
-"
+yaml
+Copy
+Edit
 version: "3.8"
 
 services:
@@ -13,17 +17,36 @@ services:
       APP_USER: testapidbuser                
       APP_USER_PASSWORD: testapidb123      
     ports:
-      - "1521:1521"                    
-      - "5500:5500"                   
+      - "1521:1521"
+      - "5500:5500"
     volumes:
       - oracle-data:/opt/oracle/oradata
     restart: unless-stopped
 
 volumes:
   oracle-data:
-  "
-then download the repo or fork it. To test it, run it on Visual Studio, where first you need to sign up using the endpoint below:
-![image](https://github.com/user-attachments/assets/27a7e59b-b671-4a10-a4df-9f346e0e450b)
+Run it with:
 
- Use the generated token either by authorizing in Swagger or by manually sending the Bearer token in requests. A token is valid for 30mins.
+bash
+Copy
+Edit
+docker-compose up -d
+Clone and Run the API
 
+bash
+Copy
+Edit
+git clone https://github.com/fhimaj/TestApi.git
+cd TestApi
+Open in Visual Studio and run the project.
+
+Sign Up & Authenticate
+Use the /api/user/ endpoint in Swagger to create a user.
+Login with the given username and password.
+Copy the returned token and use the Authorize button in Swagger, or add it to requests manually:
+
+makefile
+Copy
+Edit
+Authorization: Bearer <your_token>
+Token is valid for 30 minutes.
